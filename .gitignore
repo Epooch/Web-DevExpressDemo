@@ -10,3 +10,6 @@ obj/
 ####Web.Config files
 Web.Debug.Config
 Web.Release.Config
+
+#DevExpress License File
+*.licx
