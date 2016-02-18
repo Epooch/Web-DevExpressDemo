@@ -1,0 +1,12 @@
+#Visual Studio
+#
+####UserFiles
+.suo
+
+####Build Folders
+bin/
+obj/
+
+####Web.Config files
+Web.Debug.Config
+Web.Release.Config
