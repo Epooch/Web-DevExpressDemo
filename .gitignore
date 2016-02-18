@@ -12,4 +12,8 @@ Web.Debug.Config
 Web.Release.Config
 
 #DevExpress License File
-*.licx
+##licenses.licx != work;
+##Run the following command instead
+##git update-index --assume-unchanged <file>
+##to undo
+##git update-index --no-assume-unchanged <file>
