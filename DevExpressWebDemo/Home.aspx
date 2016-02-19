@@ -13,6 +13,8 @@
     <div>
         <h1>DevExpressWebDemos</h1>
         <h2>This is the home page to build, test, and explain in a controlled environment; the intended use and mechanics of the EPUK controls.</h2>
+        <h2>Test Data: Northwind.bak</h2>
+        <a href="/Northwind.aspx">For more information on the Northwind db.</a>
         <h3>Current Contributors include: Eric Calvano</h3>
         <p>
             Please feel free to add to this and commit up your own tests. They may seem tedious but we all need to be able to explain and do the work.
@@ -20,6 +22,9 @@
             it could save more time in our future.
         </p>
     </div>
+        <div>
+            <a href="/GridControls.aspx">GridControls.aspx</a>
+        </div>
     </form>
 </body>
 </html>
