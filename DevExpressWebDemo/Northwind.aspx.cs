@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DevExpressWebDemo
 {
-    public partial class Northwind : System.Web.UI.Page
+    public partial class Northwind : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
