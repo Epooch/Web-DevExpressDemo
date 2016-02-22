@@ -15,24 +15,24 @@ namespace DevExpressWebDemo
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView dxgvGridViewDemo;
+        protected ASPxGridView dxgvGridViewDemo;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.dxgvGridViewDemo.CustomButtonCallback += dxgvGridViewDemo_CustomButtonCallback;
-            this.dxgvGridViewDemo.CustomButtonInitialize += dxgvGridViewDemo_CustomButtonInitialize;
-            this.dxgvGridViewDemo.CommandButtonInitialize += dxgvGridViewDemo_CommandButtonInitialize;
-            this.dxgvGridViewDemo.Load += dxgvGridViewDemo_Load;
+            this.dxgvGridViewDemo.CustomButtonCallback += this.DxgvGridViewDemoCustomButtonCallback;
+            this.dxgvGridViewDemo.CustomButtonInitialize += this.DxgvGridViewDemoCustomButtonInitialize;
+            this.dxgvGridViewDemo.CommandButtonInitialize += this.DxgvGridViewDemoCommandButtonInitialize;
+            this.dxgvGridViewDemo.Load += this.DxgvGridViewDemoLoad;
             
         }
 
         //Build grid with everything required.
-        void dxgvGridViewDemo_Load(object sender, EventArgs e)
+        private void DxgvGridViewDemoLoad(object sender, EventArgs e)
         {
             if (this.dxgvGridViewDemo != null)
             {
-                var checkCustomCommandColumn = dxgvGridViewDemo.Columns["CustomCommandColumn"]; //Using the Column Caption you can check if a column already exists.
-                var checkDefaultCommandColumn = dxgvGridViewDemo.Columns["DefaultCommandColumn"];
+                var checkCustomCommandColumn = this.dxgvGridViewDemo.Columns["CustomCommandColumn"]; //Using the Column Caption you can check if a column already exists.
+                var checkDefaultCommandColumn = this.dxgvGridViewDemo.Columns["DefaultCommandColumn"];
 
                 //The supposed "linq" way, source: https://www.devexpress.com/Support/Center/Question/Details/T138170
                 //var myColumn = dxgvGridViewDemo.Columns.FirstOrDefault((col) => col.GetCaption() == "ID");
@@ -43,7 +43,7 @@ namespace DevExpressWebDemo
                     // 1. Create a new CommandColumn without any default buttons set.
                         var customCommandColumn = new GridViewCommandColumn { Visible = true, Caption = "CustomCommandColumn", VisibleIndex = 8 };
                     // 2. Create the customButton we want to use
-                        var testCustomButton = new GridViewCommandColumnCustomButton()
+                        var testCustomButton = new GridViewCommandColumnCustomButton() //This button when clicked will change the visibility of the 'DefaultCommandColumn' that I have added.
                         {
                             // a. The ID of the custom Button is used in the CustomButtonCallBack method. 
                             ID = "testCustomCommandButtonID", //this ID == e.ButtonID.
@@ -73,7 +73,7 @@ namespace DevExpressWebDemo
         /// 
         /// At this point can I make a "presenter" call to set permissions on an item?
         /// </summary>
-        void dxgvGridViewDemo_CommandButtonInitialize(object sender, ASPxGridViewCommandButtonEventArgs e)
+        internal void DxgvGridViewDemoCommandButtonInitialize(object sender, ASPxGridViewCommandButtonEventArgs e)
         {
             #region Disable Command Buttons in GridView
             if (e.ButtonType != ColumnCommandButtonType.Delete) return;
@@ -88,7 +88,7 @@ namespace DevExpressWebDemo
         /// Source: https://www.devexpress.com/Support/Center/Question/Details/Q438657
         /// At this point can I make a "presenter" call to set permissions on an item?
         /// </summary>
-        void dxgvGridViewDemo_CustomButtonInitialize(object sender, ASPxGridViewCustomButtonEventArgs e)
+        internal void DxgvGridViewDemoCustomButtonInitialize(object sender, ASPxGridViewCustomButtonEventArgs e)
         {
             if (e.ButtonID == "testCustomCommandButtonID")
             {
@@ -102,7 +102,7 @@ namespace DevExpressWebDemo
         ///
         /// e.ButtonID controls the specific action to call passed in by the gridView.
         /// </summary>
-        void dxgvGridViewDemo_CustomButtonCallback(object sender, ASPxGridViewCustomButtonCallbackEventArgs e)
+        internal void DxgvGridViewDemoCustomButtonCallback(object sender, ASPxGridViewCustomButtonCallbackEventArgs e)
         {
             if (e.ButtonID == "testCustomCommandButtonID")
             {
@@ -111,7 +111,7 @@ namespace DevExpressWebDemo
                 //this.dxgvGridViewDemo.Visible = false; //This will not work as of DevExpress 15.2.
 
                 //I cannot change or alter the controls but the columns themselves can be manipulated.
-                var checkDefaultCommandColumn = dxgvGridViewDemo.Columns["DefaultCommandColumn"];
+                var checkDefaultCommandColumn = this.dxgvGridViewDemo.Columns["DefaultCommandColumn"];
 
                 if (checkDefaultCommandColumn != null)
                 {
