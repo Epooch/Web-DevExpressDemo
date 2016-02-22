@@ -39,7 +39,7 @@ namespace DevExpressWebDemo
 
                 //If this is returned null then the column does not exist.
                 if (checkCustomCommandColumn == null)
-                {//Make New Custom Command Column
+                {//Make new Custom Command Column
                     // 1. Create a new CommandColumn without any default buttons set.
                         var customCommandColumn = new GridViewCommandColumn { Visible = true, Caption = "CustomCommandColumn", VisibleIndex = 8 };
                     // 2. Create the customButton we want to use
@@ -58,10 +58,10 @@ namespace DevExpressWebDemo
                 }
 
                 if (checkDefaultCommandColumn == null)
-                {//Maken new Default Command Column
+                {//Make new Default Command Column
                     // 1. Creates a default commandColumn and adds it programatically using the default buttons/functionality that already exists
                         var defaultCommandColumn = new GridViewCommandColumn { ShowDeleteButton = true, ShowCancelButton = true, Visible = true, Caption="DefaultCommandColumn" };
-                        // 2. Adds the defaultCommandColumn to the grid.
+                    // 2. Adds the defaultCommandColumn to the grid.
                         this.dxgvGridViewDemo.Columns.Add(defaultCommandColumn);
                 }
             }
