@@ -21,8 +21,6 @@
                 <%-- Prefix: dxgv [DevExpressGridView] --%>
                 <%-- Any other standards to be aware of ? --%>
                 <Columns>
-                    <dxw:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
-                    </dxw:GridViewCommandColumn>
                     <dxw:GridViewDataTextColumn FieldName="ProductID" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="1">
                     </dxw:GridViewDataTextColumn>
                     <dxw:GridViewDataTextColumn FieldName="ProductName" ShowInCustomizationForm="True" VisibleIndex="2">
