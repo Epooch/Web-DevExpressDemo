@@ -3,7 +3,7 @@ using DevExpress.Web;
 
 namespace DevExpressWebDemo
 {
-    
+    using System.Web.UI.WebControls;
 
     public partial class GridControls : System.Web.UI.Page
     {
@@ -30,9 +30,24 @@ namespace DevExpressWebDemo
             }
             if (this.dxgvGridViewDemo != null)
             {
-                var testColumn = new GridViewCommandColumn { ShowDeleteButton = true, ShowCancelButton = true, Visible = true, Caption="Remove" };
-                //create new column.
-                this.dxgvGridViewDemo.Columns.Add(testColumn);
+                //Creates a default commandColumn and adds it programatically using the default buttons/functionality that already exists
+                var defaultCommandColumn = new GridViewCommandColumn { ShowDeleteButton = true, ShowCancelButton = true, Visible = true, Caption="DefaultCommandColumn" };
+                this.dxgvGridViewDemo.Columns.Add(defaultCommandColumn);
+
+                //Creates a new CommandColumn without any default buttons set.
+                var customCommandColumn = new GridViewCommandColumn { Visible = true, Caption = "CustomCommandColumn" };
+                //Creates the customButton we want to use
+                var testCustomButton = new GridViewCommandColumnCustomButton()
+                                           {
+                                               ID = "testCustomCommandButtonID",
+                                               Text = "TestCustomCommandButton"
+                                           };
+
+                //Assigns the customButton to the column
+                customCommandColumn.CustomButtons.Add(testCustomButton);
+
+                //Adds the customCommandColumn to the grid, this includes the custom button.
+                this.dxgvGridViewDemo.Columns.Add(customCommandColumn);
             }
         }
 
