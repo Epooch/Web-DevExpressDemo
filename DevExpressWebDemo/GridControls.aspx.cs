@@ -85,7 +85,7 @@ namespace DevExpressWebDemo
         /// <summary>
         /// At this point we can apply permissions to specific CUSTOM buttons when they are initialized.
         /// These DO NOT include the default CommandButtons being initialized they have there own initialize event.
-        /// 
+        /// Source: https://www.devexpress.com/Support/Center/Question/Details/Q438657
         /// At this point can I make a "presenter" call to set permissions on an item?
         /// </summary>
         void dxgvGridViewDemo_CustomButtonInitialize(object sender, ASPxGridViewCustomButtonEventArgs e)
